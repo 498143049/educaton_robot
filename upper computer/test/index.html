@@ -1,0 +1,69 @@
+	<html>
+
+	<head>
+	<title>DeviceOrientationEvent</title>
+	<meta charset="UTF-8" />
+	</head>
+
+	<body>
+	<p>左右：<span id="alpha">0</span>
+	</p>
+	<p>前后：<span id="beta">0</span>
+	</p>
+	<p>扭转：<span id="gamma">0</span>
+	</p>
+	<hr />
+	<p>求解的左PWM：<span id="PWM_left">0</span></p>
+	<p>求解的右PWM：<span id="PWM_Right">0</span></p>
+	<button onclick="Stop()">stop</button>
+
+	<script type="text/javascript">
+	//192.168.123.63 地址
+	   var ws = new WebSocket("ws://192.168.123.63");
+	   var time=0;
+	   ws.onopen = function()
+	   {
+	        // Web Socket is connected, send data using send()
+	        console.log("Message is sent...");
+	   };
+	   ws.onmessage = function (evt) 
+	   { 
+	      	var received_msg = evt.data;
+	      	console.log("Message is received...");
+	   };
+	   ws.onclose = function()
+	   { 
+	        // websocket is closed.
+	     	console.log("Connection is closed..."); 
+	   };
+	  function Stop()
+	  {
+	  	if(ws.readyState==1)
+		{
+			ws.send("left=0");
+			ws.send("right=0");		
+		}
+	  };
+	 function orientationHandler(event) {
+			document.getElementById("alpha").innerHTML = event.alpha;
+			document.getElementById("beta").innerHTML = event.beta;
+			document.getElementById("gamma").innerHTML = event.gamma;
+			if(ws.readyState==1&&time==0)
+			{
+				time++;
+				ws.send("left=20");
+				ws.send("right=20");		
+			}
+	}
+
+	if (window.DeviceOrientationEvent) 
+	{
+		window.addEventListener("deviceorientation", orientationHandler, false);
+	} 
+	else
+	{
+		document.body.innerHTML = "What user agent u r using???";
+	};
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+Configuration	gait_check
+STM32CubeMX 	4.16.1
+Date	11/02/2016
+MCU	STM32F103RCTx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN8	ADC1_IN8	PB0
+I2C2	I2C	I2C2_SCL	PB10
+I2C2	I2C	I2C2_SDA	PB11
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PD0-OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PD1-OSC_OUT
+SYS	JTAG (4 pins)	SYS_JTCK-SWCLK	PA14
+SYS	JTAG (4 pins)	SYS_JTDI	PA15
+SYS	JTAG (4 pins)	SYS_JTDO-TRACESWO	PB3
+SYS	JTAG (4 pins)	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+TIM2	PWM Generation CH1	TIM2_CH1	PA0-WKUP
+TIM2	PWM Generation CH2	TIM2_CH2	PA1
+TIM2	PWM Generation CH3	TIM2_CH3	PA2
+TIM2	PWM Generation CH4	TIM2_CH4	PA3
+TIM3	Encoder Mode	TIM3_CH1	PB4
+TIM3	Encoder Mode	TIM3_CH2	PB5
+TIM4	Encoder Mode	TIM4_CH1	PB6
+TIM4	Encoder Mode	TIM4_CH2	PB7
+UART4	Asynchronous	UART4_RX	PC11
+UART4	Asynchronous	UART4_TX	PC10
+USART1	Asynchronous	USART1_RX	PA10
+USART1	Asynchronous	USART1_TX	PA9
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+5	PD0-OSC_IN	RCC_OSC_IN	
+6	PD1-OSC_OUT	RCC_OSC_OUT	
+14	PA0-WKUP	TIM2_CH1	MOTOR1_A
+15	PA1	TIM2_CH2	MOTOR1_B
+16	PA2	TIM2_CH3	MOTOR2_A
+17	PA3	TIM2_CH4	MOTOR2_B
+20	PA4	GPIO_Output	GPIO_GLED
+21	PA5	GPIO_Output	GPIO_RLED
+22	PA6	GPIO_Input	BAT_STDBY
+23	PA7	GPIO_Input	BAT_CHRG
+26	PB0	ADC1_IN8	BAT_VCHECK
+27	PB1	GPIO_Output	BAT_VGND
+28	PB2	GPIO_Input	GPIO_ENTER
+29	PB10	I2C2_SCL	IMU_SCL
+30	PB11	I2C2_SDA	IMU_SDA
+35	PB14	GPIO_Input	IMU_DRDY
+36	PB15	GPIO_Input	IMU_INT
+41	PA8	GPIO_Output	SERIAL_CTL
+42	PA9	USART1_TX	SERIAL_TX
+43	PA10	USART1_RX	SERIAL_RX
+44	PA11	GPIO_Input	GPIO_SELECT1
+45	PA12	GPIO_Input	GPIO_SELECT2
+46	PA13	SYS_JTMS-SWDIO	
+49	PA14	SYS_JTCK-SWCLK	
+50	PA15	SYS_JTDI	
+51	PC10	UART4_TX	
+52	PC11	UART4_RX	
+55	PB3	SYS_JTDO-TRACESWO	
+56	PB4	TIM3_CH1	ENCODER1_A
+57	PB5	TIM3_CH2	ENCODER1_B
+58	PB6	TIM4_CH1	ENCODER2_A
+59	PB7	TIM4_CH2	ENCODER2_B
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : gait_check
+Project Folder : F:\learning\huake\gait_check\gait_check
+Toolchain / IDE : MDK-ARM V5
+Firmware Package Name and Version : STM32Cube FW_F1 V1.4.0
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy all used libraries into the project folder
+Generate peripheral initialization as a pair of '.c/.h' files per peripherals : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : Balanced Size/Speed
+
+
+
+
+
+
